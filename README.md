@@ -1,4 +1,4 @@
-# SQL-Data-Warehouse-Project
+# Sales-Analytics-and-Data-Warehousing-Project
 Building a data warehouse with SQL Server, including ETL processes, data modeling, and analytics.
 
 Welcome to the **Data Warehouse Project** repository.
