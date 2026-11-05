@@ -137,6 +137,10 @@ Begin Transaction;
 		Print '>> Load Duration: '+Cast(DateDiff(second, @start_time, @end_time) As Nvarchar) + ' seconds';
 		Print '------------------------------------';
 
+	Print '------------------------------------';
+	Print 'Loading ERP Tables';
+	Print '------------------------------------';
+
 		Set @start_time = GetDate();
 		Print '>> Truncating Table: silver.erp_cust_az12';
 		Truncate Table silver.erp_cust_az12;
