@@ -15,13 +15,15 @@ The project delivers two complementary dashboards:
 
 ---
 ## Interactive Tableau Dashboards
+
 **[Explore the dashboards on Tableau Public](https://public.tableau.com/app/profile/brendan.kirkland/viz/RetailSalesProductProfitability/ExecutiveDashboard)**
+
 ### Executive Dashboard
 ![Executive Dashboard](tableau/Executive%20Dashboard%20Retail%20Sales%20%26%20Product%20Profitability.png)
 
 The Executive Dashboard provides a high-level view of business performance for rapid assessment of financial results, operational efficiency, and sales trends.
 
-Key features:
+**Key features:**
 
 - Revenue, gross profit, and gross profit margin with year-over-year comparisons
 - Average order value, total orders, and on time shipping rate
@@ -29,7 +31,7 @@ Key features:
 - Top products by revenue and geographic sales performance
 - Filters for sales year, country, product line, and customer age group
 - Company-wide executive insights and recommended actions
----
+
 ### Product Performance Dashboard
 ![Product Performance Dashboard](tableau/Product%20Dashboard%20Retail%20Sales%20%26%20Product%20Profitability.png)
 
@@ -99,7 +101,7 @@ The Gold layer exposes a star schema through three core SQL views:
 | `gold.dim_customers` | Customer attributes and geography |
 | `gold.dim_products` | Product attributes, categories, costs, and product lines |
 
-Surrogate product and customer keys connect the fact view to the dimensions.
+Surrogate **product and customer keys** connect the fact view to the dimensions.
 
 ![Gold Layer Data Model](docs/data_model.png)
 
@@ -182,6 +184,7 @@ Sales-Analytics-and-Data-Warehousing-Project/
 ├── LICENSE
 └── README.md
 ```
+
 ## Project Resources
 
 | Resource | Description |
