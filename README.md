@@ -1,5 +1,6 @@
 # Sales Analytics & Data Warehousing Project
-## End-to-End Business Intelligence Project | SQL Server • Data Warehousing • Tableau
+*End-to-End Business Intelligence Project | SQL Server • Data Warehousing • Tableau*
+
 ## Project Overview
 This project demonstrates an end-to-end business intelligence workflow, transforming raw CRM and ERP sales data into validated, business-ready datasets and interactive Tableau dashboards.
 
@@ -7,15 +8,14 @@ Using Microsoft SQL Server, I developed a multi-layer data warehouse to integrat
 
 The project delivers two complementary dashboards:
 
-- Executive Dashboard: High-level sales, profitability, and operational performance.
+- **Executive Dashboard:** High-level sales, profitability, and operational performance.
+- **Product Performance Dashboard:** Product level profitability, revenue mix, gross profit changes, and sales drivers.
 
-- Product Performance Dashboard: Product level profitability, revenue mix, gross profit changes, and sales drivers.
-
-Tools: SQL Server, SSMS, T-SQL, Tableau Public, CSV, GitHub
+**Tools:** SQL Server, SSMS, T-SQL, Tableau Public, CSV, GitHub
 
 ---
 ## Interactive Tableau Dashboards
-[Explore the dashboards on Tableau Public](https://public.tableau.com/app/profile/brendan.kirkland/viz/RetailSalesProductProfitability/ExecutiveDashboard)
+**[Explore the dashboards on Tableau Public](https://public.tableau.com/app/profile/brendan.kirkland/viz/RetailSalesProductProfitability/ExecutiveDashboard)**
 ### Executive Dashboard
 ![Executive Dashboard](tableau/Executive%20Dashboard%20Retail%20Sales%20%26%20Product%20Profitability.png)
 
@@ -24,15 +24,10 @@ The Executive Dashboard provides a high-level view of business performance for r
 Key features:
 
 - Revenue, gross profit, and gross profit margin with year-over-year comparisons
-
 - Average order value, total orders, and on time shipping rate
-
 - Monthly revenue and gross profit trends
-
 - Top products by revenue and geographic sales performance
-
 - Filters for sales year, country, product line, and customer age group
-
 - Company-wide executive insights and recommended actions
 ---
 ### Product Performance Dashboard
@@ -43,15 +38,10 @@ The Product Performance Dashboard investigates product profitability and year-ov
 Key features:
 
 - Product with the largest year-over-year gross profit increase
-
 - Product line revenue mix shifts and unit growth
-
 - Revenue and gross profit comparisons by product line
-
 - Largest product level gross profit gains and declines
-
 - Revenue changes from continuing, new to sales, and no current sales products
-
 - Dynamic insights and recommendations for the selected sales year
 
 [View or download the Tableau packaged workbook (.twbx)](tableau/Retail%20Sales%20%26%20Product%20Profitability.twbx)
@@ -62,10 +52,8 @@ Analysis focuses on complete sales years from 2011 through 2013, comparing 2012 
 
 ### 2012 — Product Performance Challenges
 
-- Products with no current year sales accounted for approximately ##$6.85M## in lost revenue, outweighing gains from continuing and new to sales products.
-
+- Products with no current year sales accounted for approximately **$6.85M** in lost revenue, outweighing gains from continuing and new to sales products.
 - Mountain products gained approximately **19.92** percentage points in revenue share, highlighting a shift in product mix.
-
 - Lost Road-150 sales raised questions about product replacements, inventory strategy, and profitability.
 
 **Recommended action:** Investigate lost Road-150 sales and prioritize higher margin products to offset declining Road revenue.
@@ -73,11 +61,8 @@ Analysis focuses on complete sales years from 2011 through 2013, comparing 2012 
 ### 2013 — Revenue and Profitability Recovery
 
 - Revenue increased approximately **179.77%** year over year, reaching **$16.34M**.
-
 - Gross profit increased approximately **228.83%**, reaching **$6.76M**.
-
 - Average order value declined approximately **57.04%**, making purchasing behavior and product mix important areas to monitor.
-
 - Mountain and Touring performance highlighted opportunities for targeted inventory and sales support.
 
 **Recommended action:** Prioritize high performing Mountain and Touring products while monitoring gross margins and revenue per order.
@@ -91,38 +76,28 @@ The SQL Server data warehouse uses a Bronze – Silver – Gold layered architec
 
 ![Data Warehouse Architecture](docs/data_architecture.png)
 
-Bronze — Raw Data Ingestion
+### Bronze — Raw Data Ingestion
 
 - Import CRM and ERP CSV source files into SQL Server.
-
 - Preserve raw source structure for downstream processing.
-
 - Use stored procedures for repeatable data loads.
 
-Silver — Cleansing and Transformation
+### Silver — Cleansing and Transformation
 
 - Standardize categorical values and formats.
-
 - Validate dates, identifiers, and numerical fields.
-
 - Resolve inconsistent records and apply business rules.
-
 - Prepare cleaned data for dimensional modeling.
 
-Gold — Business Ready Data
+### Gold — Business Ready Data
 
 The Gold layer exposes a star schema through three core SQL views:
 
-View	Purpose:
-
-- `gold.fact_sales`
-Sales transactions, amounts, quantities, and dates
-
-- `gold.dim_customers`
-Customer attributes and geography
-
-- `gold.dim_products`
-Product attributes, categories, costs, and product lines
+| View | Purpose |
+|---|---|
+| `gold.fact_sales`| Sales transactions, amounts, quantities, and dates |
+| `gold.dim_customers` | Customer attributes and geography |
+| `gold.dim_products` | Product attributes, categories, costs, and product lines |
 
 Surrogate product and customer keys connect the fact view to the dimensions.
 
@@ -134,19 +109,14 @@ See the [Gold layer data catalog](docs/data_catalog.md) for field definitions an
 ## Data Pipeline
 ### CRM & ERP CSVs → Bronze → Silver → Gold → Tableau
 
-1. Extract: Load CRM and ERP source datasets into SQL Server.
+1. **Extract:** Load CRM and ERP source datasets into SQL Server.
+2. **Transform:** Clean and standardize records using T-SQL.
+3. **Model:** Integrate transactional and descriptive data into a star schema.
+4. **Validate:** Reconcile data quality and analytical measures with SQL checks.
+5. **Visualize:** Export Gold layer data as CSVs for Tableau Public dashboards.
+6. **Communicate:** Translate findings into executive insights and recommendations.
 
-2. Transform: Clean and standardize records using T-SQL.
-
-3. Model: Integrate transactional and descriptive data into a star schema.
-
-4. Validate: Reconcile data quality and analytical measures with SQL checks.
-
-5. Visualize: Export Gold layer data as CSVs for Tableau Public dashboards.
-
-6. Communicate: Translate findings into executive insights and recommendations.
-
-Additional diagrams: [Data Flow](docs/data_flow.png) | [Data Integration](docs/data_integration.png)
+**Additional diagrams:** [Data Flow](docs/data_flow.png) | [Data Integration](docs/data_integration.png)
 
 ---
 ## Data Quality & Validation
@@ -154,15 +124,10 @@ Additional diagrams: [Data Flow](docs/data_flow.png) | [Data Integration](docs/d
 Validation activities include:
 
 - Checking for duplicate customer and product identifiers
-
 - Identifying missing or invalid values
-
 - Validating transformations between warehouse layers
-
 - Checking relationships between fact and dimension views
-
 - Reconciling Tableau measures against SQL results
-
 - Verifying revenue, gross profit, order counts, and year-over-year product calculations
 
 See the [Silver quality checks](tests/quality_checks_silver.sql) and [Gold quality checks](tests/quality_checks_gold.sql).
@@ -173,25 +138,17 @@ See the [Silver quality checks](tests/quality_checks_silver.sql) and [Gold quali
 ### Tableau
 
 - KPI calculations and parameter driven year-over-year comparisons
-
 - Level of Detail (LOD) calculations
-
 - Dynamic product rankings using table calculations
-
 - Interactive filters and conditional formatting
-
 - Dynamic executive insights and recommendations
 
 ### SQL
 
 - ETL stored procedures and error handling
-
 - Joins, CTEs, and window functions
-
 - Conditional transformations and aggregation
-
 - Dimensional modeling and star schema development
-
 - Data quality validation and reconciliation
 
 ---
@@ -244,19 +201,14 @@ Sales-Analytics-and-Data-Warehousing-Project/
 ---
 ## Skills Demonstrated
 
-- Data engineering: ETL, integration, transformation, and data quality
-
-- Data modeling: Star schemas, fact and dimension views, and surrogate keys
-
-- SQL analytics: CTEs, window functions, aggregation, and validation
-
-- Business intelligence: Tableau dashboards, KPIs, and interactive reporting
-
-- Business analysis: Revenue drivers, profitability analysis, and recommendations
-
-- Documentation: Data catalogs, architecture diagrams, and project organization
+- **Data engineering:** ETL, integration, transformation, and data quality
+- **Data modeling:** Star schemas, fact and dimension views, and surrogate keys
+- **SQL analytics:** CTEs, window functions, aggregation, and validation
+- **Business intelligence:** Tableau dashboards, KPIs, and interactive reporting
+- **Business analysis:** Revenue drivers, profitability analysis, and recommendations
+- **Documentation:** Data catalogs, architecture diagrams, and project organization
 
 ---
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
