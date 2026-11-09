@@ -6,6 +6,9 @@ Script Purpose:
 	found in the files called out in the 'From' lines. Additionally the Try Catch will catch any errors in the Stored Procedure
 	and revert the Truncate should the Insert fail. Addtionally this script measures the duration of each step of the procedure
 	and the duration of the total procedure in seconds.
+
+Users will need to update the file paths for the BULK INSERTs to correctly reference the location of the CSV files in their environment
+before executing the procedure.
 	*/
 
 Create or Alter Procedure bronze.load_bronze As
