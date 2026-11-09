@@ -43,4 +43,4 @@ Case When sls_sales <=0 Or sls_sales != sls_quantity * ABS(sls_price) Or sls_sal
 Case When sls_price <= 0 Or sls_price Is Null Then sls_sales / NullIf(sls_quantity, 0)
 	Else sls_price
 	End As sls_price
-FROM bronze.crm_sales_details
+From bronze.crm_sales_details
