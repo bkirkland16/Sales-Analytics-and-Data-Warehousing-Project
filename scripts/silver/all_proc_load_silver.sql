@@ -112,24 +112,24 @@ Begin Transaction;
 			sls_price
 		)
 
-		SELECT 
-		sls_ord_num,
-		sls_prd_key,
-		sls_cust_id,
-		Case When sls_order_dt = 0 Or Len(sls_order_dt) !=8 Then Null
-			Else Cast(Cast(sls_order_dt As Varchar) As Date)
-			End As sls_order_dt,
-		Case When sls_ship_dt = 0 Or Len(sls_ship_dt) !=8 Then Null
-			Else Cast(Cast(sls_ship_dt As Varchar) As Date)
-			End As sls_ship_dt,
-		Case When sls_due_dt = 0 Or Len(sls_due_dt) !=8 Then Null
-			Else Cast(Cast(sls_due_dt As Varchar) As Date)
-			End As sls_due_dt,
-		Case When sls_sales <=0 Or sls_sales != sls_quantity * ABS(sls_price) Or sls_sales Is Null Then sls_quantity * ABS(sls_price)
+		Select
+				sls_ord_num,
+				sls_prd_key,
+				sls_cust_id,
+			Case When sls_order_dt = 0 Or Len(sls_order_dt) !=8 Then Null
+				Else Cast(Cast(sls_order_dt As Varchar) As Date)
+				End As sls_order_dt,
+			Case When sls_ship_dt = 0 Or Len(sls_ship_dt) !=8 Then Null
+				Else Cast(Cast(sls_ship_dt As Varchar) As Date)
+				End As sls_ship_dt,
+			Case When sls_due_dt = 0 Or Len(sls_due_dt) !=8 Then Null
+				Else Cast(Cast(sls_due_dt As Varchar) As Date)
+				End As sls_due_dt,
+			Case When sls_sales <=0 Or sls_sales != sls_quantity * ABS(sls_price) Or sls_sales Is Null Then sls_quantity * ABS(sls_price)
 				Else sls_sales
 				End As sls_sales,
-		sls_quantity,
-		Case When sls_price <= 0 Or sls_price Is Null Then sls_sales / NullIf(sls_quantity, 0)
+				sls_quantity,
+			Case When sls_price <= 0 Or sls_price Is Null Then sls_sales / NullIf(sls_quantity, 0)
 				Else sls_price
 				End As sls_price
 		FROM bronze.crm_sales_details
