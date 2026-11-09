@@ -132,7 +132,7 @@ Begin Transaction;
 			Case When sls_price <= 0 Or sls_price Is Null Then sls_sales / NullIf(sls_quantity, 0)
 				Else sls_price
 				End As sls_price
-		FROM bronze.crm_sales_details
+		From bronze.crm_sales_details
 		Set @end_time = GetDate();
 		Print '>> Load Duration: '+Cast(DateDiff(second, @start_time, @end_time) As Nvarchar) + ' seconds';
 		Print '------------------------------------';
