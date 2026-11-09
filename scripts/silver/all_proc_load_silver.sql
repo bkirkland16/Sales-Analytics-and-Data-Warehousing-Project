@@ -44,8 +44,8 @@ Begin Transaction;
 			cst_key,
 			Trim(cst_firstname) As cst_firstname,
 			Trim(cst_lastname) As cst_lastname,
-				Case When Upper(Trim(cst_material_status)) = 'S' Then 'Single'
-					When Upper(Trim(cst_material_status)) = 'M' Then 'Married'
+				Case When Upper(Trim(cst_marital_status)) = 'S' Then 'Single'
+					When Upper(Trim(cst_marital_status)) = 'M' Then 'Married'
 					Else 'n/a'
 			End As cst_marital_status,
 				Case When Upper(Trim(cst_gndr)) = 'F' Then 'Female'
