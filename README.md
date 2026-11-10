@@ -132,7 +132,15 @@ Validation activities include:
 - Reconciling Tableau measures against SQL results
 - Verifying revenue, gross profit, order counts, and year-over-year product calculations
 
-See the [Silver quality checks](tests/sql%20tests/quality_checks_silver.sql) and [Gold quality checks](tests/sql%20tests/quality_checks_gold.sql).
+### Data Warehouse Quality Checks
+
+- [Silver quality checks](tests/sql%20tests/quality_checks_silver.sql)
+- [Gold quality checks](tests/sql%20tests/quality_checks_gold.sql)
+
+### Tableau Metric Verfication
+
+- [Executive Dashboard Tests](tests/tableau%20metric%20tests/executive_dashboard_tests.sql)
+- [Product Dashboard Tests](tests/tableau%20metric%20tests/product_dashboard_tests.sql)
 
 ---
 ## Tableau & SQL Techniques
@@ -171,16 +179,26 @@ Sales-Analytics-and-Data-Warehousing-Project/
 │   └── naming_conventions.md
 ├── scripts/
 │   ├── bronze/
+│   │   ├── ddl_bronze.sql
+│   │   └── proc_load_bronze.sql
 │   ├── silver/
+│   │   ├── ddl_silver.sql
+│   │   ├── all_proc_load_silver.sql
+│   │   └── [Individual transformation scripts]
 │   ├── gold/
+│   │   └── ddl_gold.sql
 │   └── init_database.sql
 ├── tableau/
 │   ├── Executive Dashboard Retail Sales & Product Profitability.png
 │   ├── Product Dashboard Retail Sales & Product Profitability.png
 │   └── Retail Sales & Product Profitability.twbx
 ├── tests/
-│   ├── quality_checks_gold.sql
-│   └── quality_checks_silver.sql
+│   ├── sql tests/
+│   │   ├── quality_checks_gold.sql
+│   │   └── quality_checks_silver.sql
+│   └── tableau metric tests/
+│       ├── executive_dashboard_tests.sql
+│       └── product_dashboard_tests.sql
 ├── LICENSE
 └── README.md
 ```
