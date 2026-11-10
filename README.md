@@ -132,7 +132,7 @@ Validation activities include:
 - Reconciling Tableau measures against SQL results
 - Verifying revenue, gross profit, order counts, and year-over-year product calculations
 
-See the [Silver quality checks](tests/quality_checks_silver.sql) and [Gold quality checks](tests/quality_checks_gold.sql).
+See the [Silver quality checks](tests/sql%20tests/quality_checks_silver.sql) and [Gold quality checks](tests/sql%20tests/quality_checks_gold.sql).
 
 ---
 ## Tableau & SQL Techniques
