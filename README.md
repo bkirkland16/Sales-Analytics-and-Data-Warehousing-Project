@@ -137,7 +137,7 @@ Validation activities include:
 - [Silver quality checks](tests/sql%20tests/quality_checks_silver.sql)
 - [Gold quality checks](tests/sql%20tests/quality_checks_gold.sql)
 
-### Tableau Metric Verfication
+### Tableau Metric Verification
 
 - [Executive Dashboard Tests](tests/tableau%20metric%20tests/executive_dashboard_tests.sql)
 - [Product Dashboard Tests](tests/tableau%20metric%20tests/product_dashboard_tests.sql)
