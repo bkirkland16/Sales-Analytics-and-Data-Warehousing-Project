@@ -53,8 +53,7 @@ With annual_metrics As (
     Left Join gold.dim_products As dp
         On fs.product_key = dp.product_key
     Where Year(fs.order_date) Between 2011 And 2013
-    Group By Year(fs.order_date)
-),
+    Group By Year(fs.order_date)),
 prior_year As (
     Select
         *,
@@ -63,8 +62,7 @@ prior_year As (
         Lag(gross_margin_pct) Over (Order By sales_year) As prior_gross_margin_pct,
         Lag(average_order_value) Over (Order By sales_year) As prior_aov,
         Lag(total_orders) Over (Order By sales_year) As prior_total_orders
-    From annual_metrics
-)
+    From annual_metrics)
 Select
     sales_year,
     Round((revenue - prior_revenue) * 100.0 / NullIf(prior_revenue,0),2) As revenue_yoy_pct,
